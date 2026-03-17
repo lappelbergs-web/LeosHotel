@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leo's Hotel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-md fixed-top">
+    <div class="container">
+    
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#" data-page="home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#" data-page="booking">Booking</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════ HOME PAGE ══════════════════ -->
+  <div id="page-home">
+
+    <!-- Hero (main part) -->
+    <section class="hero">
+      <div class="hero-image-placeholder">
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content text-center">
+        <h1 class="hero-title">Leo's Hotel</h1>
+        <p class="hero-subtitle">Where comfort meets elegance</p>
+        <button class="btn btn-book" data-page="booking">Book Now</button>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="about-section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 text-center">
+            <h2 class="section-heading">A stay worth remembering</h2>
+            <p class="about-text">
+              Nestled in the heart of the city, Leo's Hotel offers a seamless blend of modern comfort
+              and timeless hospitality. Whether you're here for business or leisure, our rooms are
+              designed to make you feel at home — refined, quiet, and exactly what you need.
+              From our Standard rooms to our signature Suites, every stay is tailored to you.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ══════════════════ BOOKING PAGE ══════════════════ -->
+  <div id="page-booking" class="d-none">
+
+    <section class="booking-section">
+      <div class="container">
+
+        <div class="text-center mb-5">
+          <h2 class="booking-title">Choose Your Room</h2>
+          <p class="booking-subtitle">Select a room to get started</p>
+        </div>
+
+        <!-- Room Cards -->
+        <div class="row justify-content-center g-4 mb-5">
+
+          <div class="col-md-4">
+            <div class="room-card" data-room="standard">
+              <div class="room-image-placeholder"><img src="Images/Room1.jpg"/></div>
+              <div class="room-body">
+                <h5 class="room-name">Standard</h5>
+                <p class="room-desc">A clean, comfortable room with everything you need for a great stay.</p>
+                <span class="room-select-label">Select</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="room-card" data-room="deluxe">
+              <div class="room-image-placeholder"><img src="Images/Room2.jpg"/></div>
+              <div class="room-body">
+                <h5 class="room-name">Deluxe</h5>
+                <p class="room-desc">Extra space, premium furnishings, and a view that makes the difference.</p>
+                <span class="room-select-label">Select</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="room-card" data-room="suite">
+              <div class="room-image-placeholder"><img src="Images/Room3.jpg"/></div>
+              <div class="room-body">
+                <h5 class="room-name">Suite</h5>
+                <p class="room-desc">The full experience. Spacious, refined, and designed without compromise.</p>
+                <span class="room-select-label">Select</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /room cards -->
+
+        <!-- Booking Form -->
+<div class="row justify-content-center">
+  <div class="col-md-8">
+
+    <div id="booking-form-wrap">
+      <h3 class="form-title">Your Details</h3>
+
+      <div class="form-group">
+        <label for="room-display">Room</label>
+        <input type="text" id="room-display" class="form-input" readonly placeholder="Select a room above" />
+      </div>
+
+      <div class="form-group">
+        <label for="full-name">Full Name</label>
+        <input type="text" id="full-name" class="form-input" placeholder="John Smith" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-input" placeholder="john@email.com" />
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="checkin">Check-in</label>
+          <input type="date" id="checkin" class="form-input" />
+        </div>
+        <div class="form-group">
+          <label for="checkout">Check-out</label>
+          <input type="date" id="checkout" class="form-input" />
+        </div>
+      </div>
+
+      <button class="btn-boka" id="btn-boka">Book</button>
+    </div>
+
+    <!-- Confirmation — hidden until Boka is clicked -->
+    
+
+  </div>
+</div>
+
+      </div>
+    </section>
+
+  </div><!-- /page-booking -->
+  <!-- ══════════════════ CONFIRMATION PAGE ══════════════════ -->
+      <div id="page-confirmation" class="d-none">
+  <section class="confirmation-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <h2 class="confirmation-title">Booking Confirmed</h2>
+          <p class="confirmation-text">Thank you, <span id="conf-name"></span>.</p>
+          <p class="confirmation-text">Your <span id="conf-room"></span> room is booked from <span id="conf-checkin"></span> to <span id="conf-checkout"></span>.</p>
+          <p class="confirmation-text">A confirmation will be sent to <span id="conf-email"></span>.</p>
+          <button class="btn-boka" id="btn-new-booking">Make another booking</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+ <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h6 class="footer-heading">Location</h6>
+            <p class="footer-placeholder">123 Hotel Street, City — placeholder</p>
+          </div>
+          <div class="col-md-4">
+            <h6 class="footer-heading">Contact</h6>
+            <p class="footer-placeholder">info@leoshotel.com — placeholder</p>
+            <p class="footer-placeholder">+46 000 000 000 — placeholder</p>
+          </div>
+          <div class="col-md-4">
+            <h6 class="footer-heading">Hours</h6>
+            <p class="footer-placeholder">Check-in: 15:00 — placeholder</p>
+            <p class="footer-placeholder">Check-out: 11:00 — placeholder</p>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col text-center">
+            <small class="footer-copy">© 2026 Leo's Hotel. All rights reserved.</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
